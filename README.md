@@ -34,3 +34,25 @@ Fix collision
 
 Fix immunity
  */
+ 
+ function detectTarget() {
+    setInterval(function () {
+        if (findCollision(target) === true) {
+            getPoint();
+        }
+    }, 50);
+}
+
+function findCollision(element) {
+    if (mouseX >= element.getBoundingClientRect().left &&
+        mouseX <= element.getBoundingClientRect().right &&
+        mouseY >= element.getBoundingClientRect().top &&
+        mouseY <= element.getBoundingClientRect().bottom) {
+        return true;
+    }
+}
+
+function findMouse(e) {
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+}
